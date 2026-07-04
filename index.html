@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiros Passos com Deus - Estudo Bíblico Católico</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>Passos com Deus</h1>
+            <span>Estudo Bíblico para Iniciantes</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#trilhas">Trilhas de Estudo</a></li>
+                <li><a href="#dicionario">Dicionário Bíblico</a></li>
+                <li><a href="#sobre">Sobre o Projeto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        <section id="inicio" class="hero-section">
+            <h2>Bem-vindo à Palavra de Deus!</h2>
+            <p>Se você nunca abriu a Bíblia e não sabe por onde começar, você está no lugar certo. Vamos caminhar juntos.</p>
+            
+            <div id="versiculo-container" class="card-versiculo">
+                <blockquote>
+                    <p>"Buscai primeiro o Reino de Deus e a sua justiça..."</p>
+                    <cite>— São Mateus 6, 33</cite>
+                </blockquote>
+                <button id="btn-mudar-versiculo" class="botao-destaque">Ver outra mensagem</button>
+            </div>
+        </section>
+
+        <section id="trilhas" class="trilhas-section">
+            <h2>Escolha seu Caminho de Leitura</h2>
+            <p>Pequenos passos diários para você conhecer a história da salvação.</p>
+
+            <!-- SEÇÃO 3: Detalhes da Trilha Selecionada (Dinamizada por JS) -->
+        <section id="detalhe-trilha" class="trilha-container" style="margin-top: 40px;">
+            <h2 id="titulo-trilha-ativa">Selecione uma trilha acima para começar</h2>
+            <p id="descricao-trilha-ativa">Clique em um dos botões coloridos para carregar o plano de leitura de 3 dias.</p>
+            
+           <section id="dicionario" class="dicionario-container" style="margin-top: 40px;">
+            <h2>Dicionário Bíblico para Iniciantes</h2>
+            <p>Não percebeu alguma palavra na Bíblia? Escolha um termo abaixo para entender o seu significado de forma simples.</p>
+            
+            <div class="botoes-palavras">
+                <button class="btn-palavra" onclick="buscarDefinicao('evangelho')">Evangelho</button>
+                <button class="btn-palavra" onclick="buscarDefinicao('parabola')">Parábola</button>
+                <button class="btn-palavra" onclick="buscarDefinicao('testamento')">Testamento</button>
+                <button class="btn-palavra" onclick="buscarDefinicao('salmo')">Salmo</button>
+            </div>
+
+            <div id="caixa-definicao" class="card-definicao">
+                <h3 id="termo-selecionado">Selecione uma palavra</h3>
+                <p id="texto-definicao">A explicação aparecerá aqui para o ajudar nos seus estudos.</p>
+            </div>
+        </section>
+           
+            <!-- Lista de dias que o JS vai preencher -->
+            <div id="lista-dias-estudo" class="lista-dias"></div>
+        </section>
+            
+            <div class="grid-trilhas">
+                <article class="card-trilha trilha-azul">
+                    <h3>Conhecendo Jesus</h3>
+                    <p>Uma introdução simples através do Evangelho de São Marcos. Ideal para começar do zero.</p>
+                    <a href="#" class="botao-trilha">Começar Trilha</a>
+                </article>
+
+                <article class="card-trilha trilha-verde">
+                    <h3>Aprender a Rezar</h3>
+                    <p>Descubra a força dos Salmos e como conversar com Deus no seu dia a dia.</p>
+                    <a href="#" class="botao-trilha">Começar Trilha</a>
+                </article>
+
+                <article class="card-trilha trilha-vermelha">
+                    <h3>O Começo de Tudo</h3>
+                    <p>As histórias mais marcantes do Antigo Testamento explicadas de forma fácil.</p>
+                    <a href="#" class="botao-trilha">Começar Trilha</a>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Passos com Deus. Feito com ❤️ para quem busca a Verdade.</p>
+        <p>Conteúdo em total comunhão com a Igreja Católica Apostólica Romana.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

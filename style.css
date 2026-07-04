@@ -1,0 +1,302 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fbfbf9; /* Marfim suave de fundo */
+    color: #2d3748;            /* Cinza escuro para o texto */
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   2. CABEÇALHO E MENU
+   ========================================================================== */
+header {
+    background-color: #ffffff;
+    border-bottom: 4px solid #2563eb; /* Linha azul de Nossa Senhora */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    color: #2563eb; /* Azul Celeste */
+    font-size: 24px;
+}
+
+.logo span {
+    color: #718096;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #2d3748;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #2563eb;
+}
+
+/* ==========================================================================
+   3. CONTEÚDO PRINCIPAL (BOAS-VINDAS E VERSÍCULO)
+   ========================================================================== */
+main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.hero-section {
+    background-color: #ebf8ff; /* Fundo azul bem clarinho */
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 6px solid #2563eb;
+    margin-bottom: 40px;
+}
+
+.hero-section h2 {
+    color: #2563eb;
+    margin-bottom: 10px;
+}
+
+/* Card Branco do Versículo */
+.card-versiculo {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 6px;
+    margin-top: 20px;
+    border: 1px solid #e2e8f0;
+}
+
+blockquote p {
+    font-style: italic;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+blockquote cite {
+    display: block;
+    color: #2563eb;
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-style: normal;
+}
+
+/* Botão Dourado */
+.botao-destaque {
+    background-color: #f59e0b; /* Dourado */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.botao-destaque:hover {
+    background-color: #d97706; /* Dourado mais escuro */
+}
+
+/* ==========================================================================
+   4. SEÇÃO DAS TRILHAS (CARDS COLORIDOS)
+   ========================================================================== */
+.trilhas-section h2 {
+    margin-bottom: 5px;
+}
+
+.trilhas-section > p {
+    color: #718096;
+    margin-bottom: 25px;
+}
+
+/* Organização dos cards lado a lado */
+.grid-trilhas {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Faz quebrar de linha no celular */
+}
+
+.card-trilha {
+    flex: 1;
+    min-width: 250px; /* Garante tamanho mínimo antes de quebrar */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.card-trilha h3 {
+    margin-bottom: 10px;
+}
+
+.card-trilha p {
+    margin-bottom: 20px;
+}
+
+/* Cores específicas de cada Card */
+.trilha-azul {
+    background-color: #ebf8ff; /* Azul claro */
+    border-top: 5px solid #2563eb;
+}
+.trilha-azul h3 { color: #2563eb; }
+.trilha-azul .botao-trilha { background-color: #2563eb; }
+
+.trilha-verde {
+    background-color: #e6fffa; /* Verde claro */
+    border-top: 5px solid #10b981;
+}
+.trilha-verde h3 { color: #10b981; }
+.trilha-verde .botao-trilha { background-color: #10b981; }
+
+.trilha-vermelha {
+    background-color: #fdf2f2; /* Vermelho claro */
+    border-top: 5px solid #ef4444;
+}
+.trilha-vermelha h3 { color: #ef4444; }
+.trilha-vermelha .botao-trilha { background-color: #ef4444; }
+
+/* Links de botões dentro dos cards */
+.botao-trilha {
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.botao-trilha:hover {
+    opacity: 0.9;
+}
+
+/* ==========================================================================
+   5. RODAPÉ
+   ========================================================================== */
+footer {
+    background-color: #1a202c;
+    color: #a0aec0;
+    padding: 30px;
+    text-align: center;
+    margin-top: 40px;
+}
+/* ==========================================================================
+   6. SEÇÃO DE DETALHES DA TRILHA
+   ========================================================================== */
+.trilha-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.lista-dias {
+    margin-top: 20px;
+}
+
+/* Caixa de cada dia de estudo */
+.card-dia {
+    background-color: #f7fafc;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    border-left: 4px solid #718096;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Classe que ativa a cor quando o dia for concluído */
+.dia-concluido {
+    border-left-color: #10b981; /* Muda para verde */
+    background-color: #e6fffa;   /* Fundo verde claro */
+    opacity: 0.8;
+}
+
+.card-dia h4 {
+    margin-bottom: 5px;
+}
+
+.card-dia p {
+    font-size: 14px;
+    color: #4a5568;
+}
+
+/* Botão de Check/Concluir */
+.btn-check {
+    background-color: #718096;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-check.ativo {
+    background-color: #10b981; /* Verde */
+}
+
+/* ==========================================================================
+   7. SEÇÃO DO DICIONÁRIO BÍBLICO
+   ========================================================================== */
+.dicionario-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.botoes-palavras {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* Permite quebrar de linha se faltar espaço */
+}
+
+/* Botões das palavras */
+.btn-palavra {
+    background-color: #ebf8ff; /* Fundo azul claro */
+    color: #2563eb;            /* Texto azul */
+    border: 1px solid #2563eb;
+    padding: 8px 16px;
+    border-radius: 20px;       /* Deixa o botão arredondado (estilo tag) */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-palavra:hover {
+    background-color: #2563eb;
+    color: #ffffff;            /* Inverte as cores ao passar o rato */
+}
+
+/* Caixa com a resposta */
+.card-definicao {
+    margin-top: 25px;
+    background-color: #f7fafc;
+    padding: 20px;
+    border-radius: 6px;
+    border-left: 5px solid #f59e0b; /* Borda dourada para destacar a explicação */
+}
+
+.card-definicao h3 {
+    color: #f59e0b; /* Título em dourado */
+    margin-bottom: 8px;
+    text-transform: capitalize; /* Deixa a primeira letra maiúscula automaticamente */
+}
