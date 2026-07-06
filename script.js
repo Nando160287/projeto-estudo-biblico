@@ -169,3 +169,172 @@ function buscarDefinicao(termo) {
     tagTermo.textContent = termo;
     tagTexto.textContent = significado;
 }
+
+// ==========================================================================
+// LÓGICA DO SANTO TERÇO COMPLETO (COM TODAS AS BOLINHAS)
+// ==========================================================================
+
+// O terço usa IDs literais para as contas iniciais (-4 até 0) e principais (1 até 50)
+let contaAtual = -4; 
+const totalContas = 50; 
+
+const todosOsMisterios = {
+    gozosos: ["1º Mistério Gozoso: A Anunciação", "2º Mistério Gozoso: A Visitação", "3º Mistério Gozoso: O Nascimento", "4º Mistério Gozoso: A Apresentação", "5º Mistério Gozoso: A Perda e Reencontro"],
+    dolorosos: ["1º Mistério Doloroso: A Agonia", "2º Mistério Doloroso: A Flagelação", "3º Mistério Doloroso: A Coroação", "4º Mistério Doloroso: A Cruz nas Costas", "5º Mistério Doloroso: A Crucificação"],
+    gloriosos: ["1º Mistério Glorioso: A Ressurreição", "2º Mistério Glorioso: A Ascensão", "3º Mistério Glorioso: A Vinda do Espírito Santo", "4º Mistério Glorioso: A Assunção", "5º Mistério Glorioso: A Coroação"],
+    luminosos: ["1º Mistério Luminoso: O Batismo", "2º Mistério Luminoso: As Bodas de Caná", "3º Mistério Luminoso: O Anúncio do Reino", "4º Mistério Luminoso: A Transfiguração", "5º Mistério Luminoso: A Instituição da Eucaristia"]
+};
+
+let listaMisteriosDoDia = [];
+
+function definirMisteriosPorDia() {
+    const diaDaSemana = new Date().getDay();
+    if (diaDaSemana === 1 || diaDaSemana === 6) listaMisteriosDoDia = todosOsMisterios.gozosos;
+    else if (diaDaSemana === 2 || diaDaSemana === 5) listaMisteriosDoDia = todosOsMisterios.dolorosos;
+    else if (diaDaSemana === 3 || diaDaSemana === 0) listaMisteriosDoDia = todosOsMisterios.gloriosos;
+    else if (diaDaSemana === 4) listaMisteriosDoDia = todosOsMisterios.luminosos;
+}
+
+// 1. DESENHA AMBOS OS GRUPOS DE BOLINHAS NA TELA
+function gerarBolinhasDoTerco() {
+    // A) Gerar Bolinhas Iniciais (-4 até 0)
+    const containerInicial = document.getElementById("container-terco-inicial");
+    containerInicial.innerHTML = "";
+    
+    const rotulosIniciais = {
+        "-4": "Creio",
+        "-3": "P.N.",
+        "-2": "A.M.",
+        "-1": "A.M.",
+        "0": "A.M."
+    };
+
+    for (let i = -4; i <= 0; i++) {
+        const bolaInit = document.createElement("div");
+        bolaInit.className = "bolinha";
+        bolaInit.id = `bola-id-${i}`;
+        bolaInit.textContent = rotulosIniciais[i];
+        containerInicial.appendChild(bolaInit);
+    }
+
+    // B) Gerar Bolinhas das Dezenas (1 até 50)
+    const containerDezenas = document.getElementById("container-terco-completo");
+    containerDezenas.innerHTML = ""; 
+    for (let i = 1; i <= totalContas; i++) {
+        const novaBolinha = document.createElement("div");
+        novaBolinha.className = "bolinha";
+        novaBolinha.id = `bola-id-${i}`;
+        novaBolinha.textContent = i;
+        containerDezenas.appendChild(novaBolinha);
+    }
+
+    // Deixa a primeiríssima conta (Creio) ativa por padrão ao iniciar
+    document.getElementById("bola-id--4").classList.add("conta-ativa");
+}
+
+// 2. AVANÇA A CONTA DO TERÇO
+function passarConta() {
+    // Apaga a cor azul da bolinha antiga onde o usuário estava
+    const bolaAnterior = document.getElementById(`bola-id-${contaAtual}`);
+    if (bolaAnterior) bolaAnterior.classList.remove("conta-ativa");
+
+    // Avança o contador interno
+    if (contaAtual < totalContas) {
+        contaAtual++;
+    } else {
+        alert("Parabéns! Você concluiu o Santo Terço de hoje. Salve Rainha!");
+        reiniciarTerco();
+        return;
+    }
+
+    // Acende a nova bolinha atual
+    const bolaNova = document.getElementById(`bola-id-${contaAtual}`);
+    if (bolaNova) bolaNova.classList.add("conta-ativa");
+
+    // Atualiza os textos e exibe as orações
+    atualizarTextosDoTercoCompleto();
+}
+
+// 3. GERENCIA O QUE VAI APARECER NA TELA EM CADA CONTA
+function atualizarTextosDoTercoCompleto() {
+    const tagMisterio = document.getElementById("misterio-atual");
+    const tagTitulo = document.getElementById("oracao-titulo");
+    const tagTexto = document.getElementById("oracao-texto");
+    const caixaGloria = document.getElementById("oracao-gloria");
+
+    caixaGloria.style.display = "none";
+
+    // FLUXO INICIAL (Contas -4 até 0)
+    if (contaAtual === -4) {
+        tagMisterio.textContent = "Orações Iniciais";
+        tagTitulo.textContent = "Oração: Creio em Deus Pai";
+        tagTexto.textContent = "Creio em Deus Pai Todo-Poderoso, Criador do céu e da terra, e em Jesus Cristo seu único Filho...";
+    } 
+    else if (contaAtual === -3) {
+        tagMisterio.textContent = "Orações Iniciais";
+        tagTitulo.textContent = "Oração Inicial: Pai Nosso";
+        tagTexto.textContent = "Pai Nosso, que estais nos Céus, santificado seja o vosso Nome, venha a nós o vosso reino...";
+    } 
+    else if (contaAtual === -2) {
+        tagMisterio.textContent = "Orações Iniciais";
+        tagTitulo.textContent = "1ª Ave-Maria Inicial (Pedindo a virtude da Fé)";
+        tagTexto.textContent = "Ave Maria, cheia de graça, o Senhor é convosco, bendita sois vós entre as mulheres...";
+    } 
+    else if (contaAtual === -1) {
+        tagMisterio.textContent = "Orações Iniciais";
+        tagTitulo.textContent = "2ª Ave-Maria Inicial (Pedindo a virtude da Esperança)";
+        tagTexto.textContent = "Ave Maria, cheia de graça, o Senhor é convosco, bendita sois vós entre as mulheres...";
+    } 
+    else if (contaAtual === 0) {
+        tagMisterio.textContent = "Orações Iniciais";
+        tagTitulo.textContent = "3ª Ave-Maria Inicial (Pedindo a virtude da Caridade)";
+        tagTexto.textContent = "Ave Maria, cheia de graça, o Senhor é convosco, bendita sois vós entre as mulheres...";
+    }
+    // FLUXO DAS DEZENAS PRINCIPAIS (1 até 50)
+    else {
+        // Define qual mistério exibir baseado na dezena
+        if (contaAtual <= 10) tagMisterio.textContent = listaMisteriosDoDia[0];
+        else if (contaAtual <= 20) tagMisterio.textContent = listaMisteriosDoDia[1];
+        else if (contaAtual <= 30) tagMisterio.textContent = listaMisteriosDoDia[2];
+        else if (contaAtual <= 40) tagMisterio.textContent = listaMisteriosDoDia[3];
+        else if (contaAtual <= 50) tagMisterio.textContent = listaMisteriosDoDia[4];
+
+        // Lógica dos Pai-Nossos no começo de cada nova dezena (11, 21, 31, 41)
+        const ehPaiNossoIntermediario = contaAtual === 11 || contaAtual === 21 || contaAtual === 31 || contaAtual === 41;
+
+        if (ehPaiNossoIntermediario) {
+            tagTitulo.textContent = "Oração: Pai Nosso";
+            tagTexto.textContent = "Pai Nosso, que estais nos Céus, santificado seja o vosso Nome, venha a nós o vosso reino...";
+        } else {
+            tagTitulo.textContent = `Ave Maria — Conta nº ${contaAtual}`;
+            tagTexto.textContent = "Ave Maria, cheia de graça, o Senhor é convosco, bendita sois vós entre as mulheres...";
+        }
+
+        // DISPARA O GLÓRIA AO FINAL DE CADA DEZENA (10, 20, 30, 40, 50)
+        if (contaAtual === 10 || contaAtual === 20 || contaAtual === 30 || contaAtual === 40 || contaAtual === 50) {
+            caixaGloria.style.display = "block";
+        }
+    }
+}
+
+// 4. REINICIA O TERÇO COMPLETO
+function reiniciarTerco() {
+    const bolaAtiva = document.getElementById(`bola-id-${contaAtual}`);
+    if (bolaAtiva) bolaAtiva.classList.remove("conta-ativa");
+
+    contaAtual = -4;
+    document.getElementById("oracao-gloria").style.display = "none";
+    
+    // Força a reacender a primeira bolinha do "Creio"
+    document.getElementById("bola-id--4").classList.add("conta-ativa");
+    
+    definirMisteriosPorDia();
+    atualizarTextosDoTercoCompleto();
+}
+
+// 5. INICIALIZAÇÃO DA PÁGINA
+document.addEventListener("DOMContentLoaded", () => {
+    definirMisteriosPorDia(); 
+    gerarBolinhasDoTerco();    
+    atualizarTextosDoTercoCompleto(); 
+});

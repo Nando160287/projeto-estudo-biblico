@@ -51,6 +51,42 @@
             <h2>Dicionário Bíblico para Iniciantes</h2>
             <p>Não percebeu alguma palavra na Bíblia? Escolha um termo abaixo para entender o seu significado de forma simples.</p>
             
+            <!-- SEÇÃO 6: Santo Terço com Todas as Bolinhas Visíveis -->
+<section id="terco" class="terco-container" style="margin-top: 40px;">
+    <h2>O Santo Terço Interativo Completo</h2>
+    <p class="subtitulo">Reze o terço completo. Todas as contas — incluindo a introdução e as dezenas — mudam de cor conforme você avança.</p>
+    
+    <div class="painel-terco">
+        <!-- Mistério Atual -->
+        <h3 id="misterio-atual">Orações Iniciais</h3>
+        
+        <!-- Título da Oração -->
+        <h4 id="oracao-titulo">Oração: Creio em Deus Pai</h4>
+        
+        <!-- Texto da Oração Principal -->
+        <p id="oracao-texto" class="texto-oracao-atual">Creio em Deus Pai Todo-Poderoso, Criador do céu e da terra...</p>
+        
+        <!-- Caixa Especial para o Glória (fica oculta e aparece na hora certa) -->
+        <div id="oracao-gloria" class="card-gloria" style="display: none;">
+            <h5>✨ Oração do Glória</h5>
+            <p>Glória ao Pai, ao Filho e ao Espírito Santo. Como era no princípio, agora e sempre. Amém.</p>
+        </div>
+
+        <!-- FILEIRA 1: Contas Iniciais (Injetadas pelo JS) -->
+        <div class="grupo-contas-titulo">Orações Iniciais:</div>
+        <div class="contas-container" id="container-terco-inicial"></div>
+        
+        <!-- FILEIRA 2: As 5 Dezenas (Injetadas pelo JS) -->
+        <div class="grupo-contas-titulo">As 5 Dezenas:</div>
+        <div class="contas-container" id="container-terco-completo"></div>
+
+        <div class="controles-terco">
+            <button class="botao-destaque" onclick="passarConta()">Passar Conta ➔</button>
+            <button class="btn-palavra" onclick="reiniciarTerco()" style="margin-left: 10px;">Reiniciar</button>
+        </div>
+    </div>
+</section>
+            
             <div class="botoes-palavras">
                 <button class="btn-palavra" onclick="buscarDefinicao('evangelho')">Evangelho</button>
                 <button class="btn-palavra" onclick="buscarDefinicao('parabola')">Parábola</button>
