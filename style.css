@@ -325,7 +325,7 @@ footer {
 }
 
 /* ==========================================================================
-   9. SANTO TERÇO COMPLETO (TODAS AS BOLINHAS)
+   9. SANTO TERÇO (CONTAS DE 1 A 10)
    ========================================================================== */
 .terco-container {
     background-color: #ffffff;
@@ -344,10 +344,21 @@ footer {
 .grupo-contas-titulo {
     font-size: 13px;
     font-weight: bold;
-    color: #718096;
+    color: #4a5568;
     text-transform: uppercase;
-    margin-top: 15px;
-    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    text-align: left;
+    padding-left: 5px;
+}
+
+.bloco-dezena {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
 .texto-oracao-atual {
@@ -378,29 +389,26 @@ footer {
     display: flex;
     justify-content: center;
     gap: 8px;
-    margin: 10px 0 20px 0;
+    margin: 5px 0;
     flex-wrap: wrap;
-    max-width: 100%;
 }
 
-/* Estilo padrão de qualquer bolinha apagada */
 .bolinha {
     width: 35px;
     height: 35px;
-    background-color: #cbd5e0; /* Cinza */
+    background-color: #cbd5e0;
     color: #4a5568;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: bold;
     transition: all 0.2s ease;
 }
 
-/* Classe ativada pelo JS para acender as bolinhas */
 .bolinha.conta-ativa {
-    background-color: #2563eb; /* Azul */
+    background-color: #2563eb;
     color: #ffffff;
     box-shadow: 0 0 6px rgba(37, 99, 235, 0.4);
 }
